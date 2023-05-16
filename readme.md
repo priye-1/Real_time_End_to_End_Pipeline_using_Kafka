@@ -1,5 +1,5 @@
 # Stock Market Real-Time Data Analysis Using Kafka
-This is an End-To-End Data Engineering Project on Real-Time Stock Market Data using AWS and Kafka. <br>
+This is an End-To-End Data Engineering Project on Real-Time Stock Market Data, using AWS and Kafka. <br>
 
 
 ### Technologies used
