@@ -1,0 +1,20 @@
+version = 0.1
+[Y.deploy.parameters]
+stack_name = "kafka-sock-market-lambda"
+resolve_s3 = true
+s3_prefix = "kafka-sock-market-lambda"
+region = "eu-north-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+disable_rollback = true
+
+[y.deploy.parameters]
+stack_name = "kafka-lambda-app"
+resolve_s3 = true
+s3_prefix = "kafka-lambda-app"
+region = "eu-north-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []

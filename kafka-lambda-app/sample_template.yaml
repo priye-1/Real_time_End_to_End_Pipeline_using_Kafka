@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  kafka-lambda-app
+
+  Sample SAM Template for kafka-lambda-app
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+
+Resources:
+  StockMarketAnalysisFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: stock_market_analysis/
+      Handler: app.kafka_stock_analysis_handler
+      Runtime: python3.9
+      Architectures:
+      - x86_64
+      Events:
+        KafKaStockMarketSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+            Enabled: false
+      Environment:
+        Variables: 
+          BOOTSTRAP_SERVER: <ec2 public ipv4 address:9092>
+      Timeout: 500
+      MemorySize: 500
