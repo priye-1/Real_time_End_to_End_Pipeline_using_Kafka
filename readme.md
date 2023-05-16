@@ -56,8 +56,7 @@ Tested lambda Function before enabling cron
 start consumer file -> scrape data using aws lambda created through sam -> transform data -> move to producer client -> consumer reads data and uploads to s3 -> Data schema is crawled through Glue -> Athena queries data directly from s3 <br><br>
 
 #### Necessary Files
-1. Kafka commands can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/commands.txt">here</a><br><br>
-consumer
+1. Kafka commands can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/commands.txt">here</a>
 2. Generated app through SAM can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/tree/master/kafka-lambda-app">here</a> This module contains the kafka producer and transformation code.
 3. Kafka Consumer file can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/kafka_consumer.py">here</a>
 
