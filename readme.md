@@ -3,14 +3,14 @@ This is an End-To-End Data Engineering Project on Real-Time Stock Market Data us
 
 
 ### Technologies used
-- Apache Kafka: This is an event streaming platform used to collect, process, store, and integrate data at scale. Its Python API was utilized to stream data received from the web API<br><br>
-- AWS EC2 : This is a cloud-based computing service that allows users to quickly launch virtual servers and manage cookies, security, and networking from an easy-to-use dashboard. It was used to host Kafka server for this project. <br><br>
-- AWS Lamda: This is a serverless compute service that lets you run codes without  provisioning or managing any server. lambda functions can be used to run code in response to events like changes in S3, DynamoDB, cron jobs, etc. For this project, it was used to run the data scrape function triggered every hour. <br><br>
-- ASW Cloudwatch: This is a monitoring and management service that provides data and actionable insights for AWS, hybrid, and on-premises applications and resources. For this project it was used to collect and aggregate metrics and logs from the Lambda functions. The performance events are ingested as CloudWatch logs to simplify monitoring and troubleshooting. <br><br>
-- AWS Severless Application Model (SAM): This is a service that is designed to make the creation, deployment, and execution of serverless applications as simple as possible. This can be done using AWS SAM templates. For this project it was used to deploy our lambda function. <br><br>
-- AWS S3: This is a highly scalable object storage service that stores data as objects within buckets. It is commonly used to store and distribute large media files, data backups and static website files. For this project it is used to store data streamed from kafka. <br><br>
-- AWS Glue :Glue Crawler is a fully managed service that automatically crawls your data sources, identifies data and infer schemas to create an AWS Glue Data Catalog. This Catalog is a fully managed metadata repository that makes it easy to discover and manage data that has been crawled.It allows us to query the data directly from S3 without loading it first. <br><br>
-- AWS Athena: Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using SQL commands. For this project it is used to analyze data in Glue Data Catalog or in other S3 buckets. <br><br>
+- <b>Apache Kafka</b>: This is an event streaming platform used to collect, process, store, and integrate data at scale. Its Python API was utilized to stream data received from the web API<br><br>
+- <b>AWS EC2</b> : This is a cloud-based computing service that allows users to quickly launch virtual servers and manage cookies, security, and networking from an easy-to-use dashboard. It was used to host Kafka server for this project. <br><br>
+- <b>AWS Lamda</b>: This is a serverless compute service that lets you run codes without  provisioning or managing any server. lambda functions can be used to run code in response to events like changes in S3, DynamoDB, cron jobs, etc. For this project, it was used to run the data scrape function triggered every hour. <br><br>
+- <b>AWS Cloudwatch</b>: This is a monitoring and management service that provides data and actionable insights for AWS, hybrid, and on-premises applications and resources. For this project it was used to collect and aggregate metrics and logs from the Lambda functions. The performance events are ingested as CloudWatch logs to simplify monitoring and troubleshooting. <br><br>
+- <b>AWS Severless Application Model (SAM)</b>: This is a service that is designed to make the creation, deployment, and execution of serverless applications as simple as possible. This can be done using AWS SAM templates. For this project it was used to deploy our lambda function. <br><br>
+- <b>AWS S3</b>: This is a highly scalable object storage service that stores data as objects within buckets. It is commonly used to store and distribute large media files, data backups and static website files. For this project it is used to store data streamed from kafka. <br><br>
+- <b>AWS Glue</b> :Glue Crawler is a fully managed service that automatically crawls your data sources, identifies data and infer schemas to create an AWS Glue Data Catalog. This Catalog is a fully managed metadata repository that makes it easy to discover and manage data that has been crawled.It allows us to query the data directly from S3 without loading it first. <br><br>
+- <b>AWS Athena</b>: Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using SQL commands. For this project it is used to analyze data in Glue Data Catalog or in other S3 buckets. <br><br>
 
 
 ## Architecture
@@ -31,10 +31,10 @@ The website does not provide a public API, hence it was reverse engineered to ge
 1. Created EC2 Instance (AWS Linux AMI 2) to run python consumer file and host kafka <br>
 <img src='readme_images/ec2-instance.png'><br>
 
-2. Installed AWS SAM and create Lamba function using SAM Template. Sample template used can be found ...<br>
-<img src='readme_images/lambda.png'><br>
+2. Installed AWS SAM and create Lamba function using SAM Template. Sample template used can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/kafka-lambda-app/sample_template.yaml">here</a><br>
+<img src='readme_images/lambda.png'><br><br>
 Tested lambda Function before enabling cron
-<img src='readme_images/lambda-test.png'><br>
+<img src='readme_images/lambda-test.png'><br><br>
     
 
 2. Installed Kafka and Java on ec2 Instance, and run kafka and zookeper in background to test producer and consumer clients<br>
