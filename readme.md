@@ -31,32 +31,35 @@ The website does not provide a public API, hence it was reverse engineered to ge
 1. Created EC2 Instance (AWS Linux AMI 2) to run python consumer file and host kafka <br>
 <img src='readme_images/ec2-instance.png'><br>
 
-2. Installed AWS SAM and create Lamba function using SAM Template. Sample template used can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/kafka-lambda-app/sample_template.yaml">here</a><br>
+2. Installed AWS SAM and created Lambda function using SAM Template. Sample template used can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/kafka-lambda-app/sample_template.yaml">here</a><br>
 <img src='readme_images/lambda.png'><br><br>
 Tested lambda Function before enabling cron
 <img src='readme_images/lambda-test.png'><br><br>
     
 
-2. Installed Kafka and Java on ec2 Instance, and run kafka and zookeper in background to test producer and consumer clients<br>
+2. Installed Kafka and Java on ec2 Instance, and ran kafka and zookeper in background to test producer and consumer clients<br>
 <img src='readme_images/run-servers_backgroud.png'><br>
 
 3. Created S3 Bucket and IAM role to enable access to s3 from any instance <br>
 <img src='readme_images/s3-bucket.png'><br>
 
-4. Created and run crawler on AWS Glue. This includes creating a database, chosing a data source, amd creating an IAM role that allows Glue to access S3<br>
+4. Created and ran crawler on AWS Glue. This includes creating a database, chosing a data source, amd creating an IAM role that allows Glue to access S3<br>
 <img src='readme_images/crawler.png'><br>
 
-5. Access Athena to preview data, with time the data number of rows increases due to the cron job that runs hourly on aws lamdba.<br>
+5. Access Athena to preview data, with time the number of rows increases due to the cron job that runs hourly on aws lamdba.<br>
 <img src='readme_images/query-1.png'>
 <br>
 <img src='readme_images/query-2.png'><br>
 
 
-#### Pipeline Flow (more emphasis on this)
-start consumer -> scrape data using aws lambda created through sam -> transform data -> move to producer client -> consumer reads data and uploads to s3 -> Data schema is crawled through Glue -> Athena queries data directly from s3 <br><br>
+#### Pipeline Flow
+start consumer file -> scrape data using aws lambda created through sam -> transform data -> move to producer client -> consumer reads data and uploads to s3 -> Data schema is crawled through Glue -> Athena queries data directly from s3 <br><br>
 
-#### Kafka commands
-this can be found in commands.txt<br><br>
+#### Necessary Files
+1. Kafka commands can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/commands.txt">here</a><br><br>
+consumer
+2. Generated app through SAM can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/tree/master/kafka-lambda-app">here</a> This module contains the kafka producer and transformation code.
+3. Kafka Consumer file can be found <a href="https://github.com/priye-1/Real_time_End_to_End_Pipeline_using_Kafka/blob/master/kafka_consumer.py">here</a>
 
 #### AWS SAM
 A sample template.yaml is also provided to show how SAM is used to configure lambda functions.
